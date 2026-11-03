@@ -111,3 +111,23 @@ MIT License. This project is intended for educational and research comparison pu
 ```
 
 ---
+---
+
+## ⏱ Training Performance Profiling
+
+`profile_train.py` profiles a training step with `torch.profiler` (to find the bottleneck), then times steps **without** the profiler (median of several 100-step runs) and can train + evaluate PSNR/SSIM:
+
+```bash
+python profile_train.py --model vgg --tag baseline
+python profile_train.py --model vgg --tag cl --channels-last
+python profile_train.py --model vgg --tag cl_acc --channels-last --train-epochs 3 --eval
+```
+
+VGG, batch 64, CPU only (4 vCPU Intel Xeon @ 2.8 GHz, Cascade Lake, KVM), PyTorch 2.15:
+
+| Config | Step time | Throughput | Test PSNR / SSIM (3 epochs) |
+|---|---|---|---|
+| Baseline (NCHW) | ~240 ms | ~265 img/s | 20.63 dB / 0.874 |
+| `channels_last` | ~200 ms | ~320 img/s | 20.65 dB / 0.876 |
+
+The profiler showed backward ≈ 56 % and forward ≈ 35 % of the step, with data loading only ≈ 6 %. `aten::convolution_backward` alone took ≈ 48 % of self CPU time, so the conv kernels were the bottleneck. Switching to `channels_last` (NHWC) lets oneDNN skip layout reorders. Trace files go to `prof/` (open with TensorBoard).

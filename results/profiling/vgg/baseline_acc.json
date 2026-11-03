@@ -1,0 +1,76 @@
+{
+  "model": "vgg",
+  "tag": "baseline_acc",
+  "device": "cpu",
+  "batch_size": 64,
+  "num_workers": 0,
+  "threads": 4,
+  "channels_last": false,
+  "step_ms_runs": [
+    248.32267453999975
+  ],
+  "step_ms": 248.32267453999975,
+  "throughput_img_s": 257.72918288092495,
+  "profiler_phase_ms_per_step": {
+    "data_loading": 15.093111300000023,
+    "forward": 83.49024289999998,
+    "backward": 132.0523139,
+    "optimizer_step": 4.658986900000004
+  },
+  "profiler_top_ops": [
+    {
+      "op": "aten::convolution_backward",
+      "self_cpu_ms_per_step": 110.92107869999981,
+      "pct": 46.956754723104275
+    },
+    {
+      "op": "aten::mkldnn_convolution",
+      "self_cpu_ms_per_step": 41.255879099999994,
+      "pct": 17.465050092275625
+    },
+    {
+      "op": "aten::_convolution",
+      "self_cpu_ms_per_step": 14.348579400000023,
+      "pct": 6.0742532565254335
+    },
+    {
+      "op": "aten::max_pool2d_with_indices",
+      "self_cpu_ms_per_step": 9.754747099999936,
+      "pct": 4.129524093427433
+    },
+    {
+      "op": "enumerate(DataLoader)#_SingleProcessDataLoaderIter.__next__",
+      "self_cpu_ms_per_step": 8.758253899997149,
+      "pct": 3.707673825433491
+    },
+    {
+      "op": "aten::native_batch_norm",
+      "self_cpu_ms_per_step": 5.957646900000068,
+      "pct": 2.5220793693035573
+    },
+    {
+      "op": "aten::threshold_backward",
+      "self_cpu_ms_per_step": 4.879773799999969,
+      "pct": 2.065778156111904
+    },
+    {
+      "op": "aten::clamp_min",
+      "self_cpu_ms_per_step": 4.621009000000005,
+      "pct": 1.9562340064608292
+    },
+    {
+      "op": "aten::native_batch_norm_backward",
+      "self_cpu_ms_per_step": 4.534316599999926,
+      "pct": 1.919534095038484
+    },
+    {
+      "op": "aten::copy_",
+      "self_cpu_ms_per_step": 4.36746519999921,
+      "pct": 1.8489000878969708
+    }
+  ],
+  "train_wall_s": 664.0775823810002,
+  "train_epochs": 3,
+  "test_psnr": 20.633455880416918,
+  "test_ssim": 0.874075653325756
+}

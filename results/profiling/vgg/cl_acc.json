@@ -1,0 +1,76 @@
+{
+  "model": "vgg",
+  "tag": "cl_acc",
+  "device": "cpu",
+  "batch_size": 64,
+  "num_workers": 0,
+  "threads": 4,
+  "channels_last": true,
+  "step_ms_runs": [
+    197.72879558000113
+  ],
+  "step_ms": 197.72879558000113,
+  "throughput_img_s": 323.6756680394868,
+  "profiler_phase_ms_per_step": {
+    "data_loading": 11.676658999999983,
+    "forward": 62.1938448,
+    "backward": 117.66037410000001,
+    "optimizer_step": 3.3342573999999936
+  },
+  "profiler_top_ops": [
+    {
+      "op": "aten::convolution_backward",
+      "self_cpu_ms_per_step": 89.6818258000001,
+      "pct": 45.79587883657625
+    },
+    {
+      "op": "aten::mkldnn_convolution",
+      "self_cpu_ms_per_step": 28.688074000000178,
+      "pct": 14.649518441881899
+    },
+    {
+      "op": "aten::_convolution",
+      "self_cpu_ms_per_step": 13.524123599999959,
+      "pct": 6.906071773535178
+    },
+    {
+      "op": "aten::threshold_backward",
+      "self_cpu_ms_per_step": 9.041988200000006,
+      "pct": 4.617276603761471
+    },
+    {
+      "op": "aten::clamp_min",
+      "self_cpu_ms_per_step": 8.40365630000003,
+      "pct": 4.2913134547159455
+    },
+    {
+      "op": "aten::native_batch_norm",
+      "self_cpu_ms_per_step": 6.823908299999833,
+      "pct": 3.4846177016469593
+    },
+    {
+      "op": "enumerate(DataLoader)#_SingleProcessDataLoaderIter.__next__",
+      "self_cpu_ms_per_step": 6.677387599999652,
+      "pct": 3.409797143920774
+    },
+    {
+      "op": "aten::native_batch_norm_backward",
+      "self_cpu_ms_per_step": 6.1628294,
+      "pct": 3.147038833958369
+    },
+    {
+      "op": "autograd::engine::evaluate_function: ConvolutionBackward0",
+      "self_cpu_ms_per_step": 4.517702999999967,
+      "pct": 2.306957707005507
+    },
+    {
+      "op": "autograd::engine::evaluate_function: NativeBatchNormBackward0",
+      "self_cpu_ms_per_step": 1.6909743000000161,
+      "pct": 0.8634932826999268
+    }
+  ],
+  "train_wall_s": 546.8408997500001,
+  "train_epochs": 3,
+  "test_psnr": 20.645384421816665,
+  "test_ssim": 0.8764599327654354
+}

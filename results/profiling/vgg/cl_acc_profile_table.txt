@@ -1,0 +1,20 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg       CPU Mem  Self CPU Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                             aten::convolution_backward        45.80%     896.818ms        46.23%     905.322ms      12.933ms     369.82 MB     -17.61 MB            70  
+                               aten::mkldnn_convolution        14.65%     286.881ms        14.69%     287.629ms       5.753ms     308.16 MB           0 B            50  
+                                     aten::_convolution         6.91%     135.241ms        21.61%     423.267ms       6.047ms     491.91 MB           0 B            70  
+                               aten::threshold_backward         4.62%      90.420ms         4.62%      90.420ms       1.507ms     490.00 MB     490.00 MB            60  
+                                        aten::clamp_min         4.29%      84.037ms         4.29%      84.037ms       1.401ms     490.00 MB     490.00 MB            60  
+                                aten::native_batch_norm         3.48%      68.239ms         3.56%      69.649ms       2.322ms     199.09 MB    -100.00 KB            30  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...         3.41%      66.774ms         5.95%     116.459ms      11.646ms       3.83 MB     -11.48 MB            10  
+                       aten::native_batch_norm_backward         3.15%      61.628ms         3.21%      62.825ms       2.094ms     199.09 MB    -199.16 MB            30  
+autograd::engine::evaluate_function: ConvolutionBack...         2.31%      45.177ms        48.62%     952.116ms      13.602ms    -152.72 MB    -522.54 MB            70  
+autograd::engine::evaluate_function: NativeBatchNorm...         0.86%      16.910ms         4.12%      80.654ms       2.688ms    -199.06 MB    -398.15 MB            30  
+                                                forward         0.86%      16.853ms        31.76%     621.938ms      62.194ms     830.73 MB    -491.91 MB            10  
+                          aten::max_pool2d_with_indices         0.86%      16.779ms         0.86%      16.779ms     838.961us     137.81 MB     137.81 MB            20  
+                                            aten::fill_         0.67%      13.129ms         0.67%      13.129ms     262.585us           0 B           0 B            50  
+                 aten::max_pool2d_with_indices_backward         0.62%      12.144ms         1.28%      25.109ms       1.255ms     183.75 MB     183.75 MB            20  
+                                               backward         0.62%      12.099ms        60.08%        1.177s     117.660ms    -809.82 MB         -40 B            10  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.958s
