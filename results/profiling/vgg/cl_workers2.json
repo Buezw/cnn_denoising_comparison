@@ -1,0 +1,74 @@
+{
+  "model": "vgg",
+  "tag": "cl_workers2",
+  "device": "cpu",
+  "batch_size": 64,
+  "num_workers": 2,
+  "threads": 4,
+  "channels_last": true,
+  "step_ms_runs": [
+    172.0268034500009,
+    175.91048877999924,
+    185.06737961
+  ],
+  "step_ms": 175.91048877999924,
+  "throughput_img_s": 363.8213982796727,
+  "profiler_phase_ms_per_step": {
+    "data_loading": 1.3986120999999785,
+    "forward": 58.39411990000006,
+    "backward": 105.68374139999996,
+    "optimizer_step": 3.7221730000000037
+  },
+  "profiler_top_ops": [
+    {
+      "op": "aten::convolution_backward",
+      "self_cpu_ms_per_step": 80.34875470000017,
+      "pct": 47.35855563161081
+    },
+    {
+      "op": "aten::mkldnn_convolution",
+      "self_cpu_ms_per_step": 29.837069899999943,
+      "pct": 17.5863401992888
+    },
+    {
+      "op": "aten::_convolution",
+      "self_cpu_ms_per_step": 10.391121900000039,
+      "pct": 6.124656522847146
+    },
+    {
+      "op": "aten::threshold_backward",
+      "self_cpu_ms_per_step": 8.437630400000064,
+      "pct": 4.973244329539967
+    },
+    {
+      "op": "aten::clamp_min",
+      "self_cpu_ms_per_step": 7.350264599999965,
+      "pct": 4.332337399202495
+    },
+    {
+      "op": "aten::native_batch_norm_backward",
+      "self_cpu_ms_per_step": 5.657243199999863,
+      "pct": 3.3344495233196803
+    },
+    {
+      "op": "aten::native_batch_norm",
+      "self_cpu_ms_per_step": 5.361096799999954,
+      "pct": 3.1598971508297438
+    },
+    {
+      "op": "autograd::engine::evaluate_function: ConvolutionBackward0",
+      "self_cpu_ms_per_step": 3.0266780000000675,
+      "pct": 1.7839616678212868
+    },
+    {
+      "op": "aten::max_pool2d_with_indices",
+      "self_cpu_ms_per_step": 2.182920900000016,
+      "pct": 1.2866407359771623
+    },
+    {
+      "op": "forward",
+      "self_cpu_ms_per_step": 1.8293507999999523,
+      "pct": 1.0782421203041905
+    }
+  ]
+}

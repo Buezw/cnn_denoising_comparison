@@ -1,0 +1,74 @@
+{
+  "model": "vgg",
+  "tag": "cl",
+  "device": "cpu",
+  "batch_size": 64,
+  "num_workers": 0,
+  "threads": 4,
+  "channels_last": true,
+  "step_ms_runs": [
+    184.16718507000041,
+    192.23771976999956,
+    201.30488826999908
+  ],
+  "step_ms": 192.23771976999956,
+  "throughput_img_s": 332.92113575094425,
+  "profiler_phase_ms_per_step": {
+    "data_loading": 17.18568509999998,
+    "forward": 62.11227539999995,
+    "backward": 120.22832730000002,
+    "optimizer_step": 4.2680679
+  },
+  "profiler_top_ops": [
+    {
+      "op": "aten::convolution_backward",
+      "self_cpu_ms_per_step": 90.77741890000001,
+      "pct": 44.4804530706485
+    },
+    {
+      "op": "aten::mkldnn_convolution",
+      "self_cpu_ms_per_step": 27.822600100000027,
+      "pct": 13.63292626126288
+    },
+    {
+      "op": "aten::_convolution",
+      "self_cpu_ms_per_step": 13.635795500000006,
+      "pct": 6.681467364553038
+    },
+    {
+      "op": "enumerate(DataLoader)#_SingleProcessDataLoaderIter.__next__",
+      "self_cpu_ms_per_step": 9.81296659999965,
+      "pct": 4.808301509607314
+    },
+    {
+      "op": "aten::threshold_backward",
+      "self_cpu_ms_per_step": 8.292225200000003,
+      "pct": 4.06314630146252
+    },
+    {
+      "op": "aten::clamp_min",
+      "self_cpu_ms_per_step": 7.912526499999943,
+      "pct": 3.8770959553412685
+    },
+    {
+      "op": "aten::native_batch_norm",
+      "self_cpu_ms_per_step": 6.9458845,
+      "pct": 3.4034465099381093
+    },
+    {
+      "op": "aten::native_batch_norm_backward",
+      "self_cpu_ms_per_step": 6.073365700000024,
+      "pct": 2.975916932572504
+    },
+    {
+      "op": "autograd::engine::evaluate_function: ConvolutionBackward0",
+      "self_cpu_ms_per_step": 5.081021499999944,
+      "pct": 2.4896735456939005
+    },
+    {
+      "op": "autograd::engine::evaluate_function: NativeBatchNormBackward0",
+      "self_cpu_ms_per_step": 2.627299499999954,
+      "pct": 1.2873627993435515
+    }
+  ]
+}

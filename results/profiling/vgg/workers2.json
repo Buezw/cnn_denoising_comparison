@@ -1,0 +1,74 @@
+{
+  "model": "vgg",
+  "tag": "workers2",
+  "device": "cpu",
+  "batch_size": 64,
+  "num_workers": 2,
+  "threads": 4,
+  "channels_last": false,
+  "step_ms_runs": [
+    213.2405239000002,
+    210.4627024399997,
+    201.85494539000047
+  ],
+  "step_ms": 210.4627024399997,
+  "throughput_img_s": 304.09188544105865,
+  "profiler_phase_ms_per_step": {
+    "data_loading": 1.6439645000000014,
+    "forward": 96.677298,
+    "backward": 133.6567683,
+    "optimizer_step": 4.557313999999995
+  },
+  "profiler_top_ops": [
+    {
+      "op": "aten::convolution_backward",
+      "self_cpu_ms_per_step": 112.77994739999993,
+      "pct": 47.5022778685941
+    },
+    {
+      "op": "aten::mkldnn_convolution",
+      "self_cpu_ms_per_step": 49.275887500000124,
+      "pct": 20.75472594383024
+    },
+    {
+      "op": "aten::_convolution",
+      "self_cpu_ms_per_step": 14.99413109999997,
+      "pct": 6.31544346606361
+    },
+    {
+      "op": "aten::max_pool2d_with_indices",
+      "self_cpu_ms_per_step": 10.601356100000041,
+      "pct": 4.465231407317693
+    },
+    {
+      "op": "aten::clamp_min",
+      "self_cpu_ms_per_step": 6.924997400000022,
+      "pct": 2.916769854195667
+    },
+    {
+      "op": "aten::native_batch_norm",
+      "self_cpu_ms_per_step": 6.298145899999886,
+      "pct": 2.652743537267703
+    },
+    {
+      "op": "aten::native_batch_norm_backward",
+      "self_cpu_ms_per_step": 5.385714900000001,
+      "pct": 2.2684327453483784
+    },
+    {
+      "op": "aten::threshold_backward",
+      "self_cpu_ms_per_step": 4.81238890000006,
+      "pct": 2.026951067185379
+    },
+    {
+      "op": "aten::copy_",
+      "self_cpu_ms_per_step": 4.616689299999122,
+      "pct": 1.9445234992326625
+    },
+    {
+      "op": "autograd::engine::evaluate_function: ReluBackward0",
+      "self_cpu_ms_per_step": 3.366239599999841,
+      "pct": 1.4178411369915005
+    }
+  ]
+}
